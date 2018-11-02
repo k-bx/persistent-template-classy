@@ -13,8 +13,18 @@ extra-source-files:
 
 dependencies:
   - base >= 4.7 && < 5
+  - persistent
+  - persistent-sqlite
+  - persistent-template
+  - lens
+  - text
+  - template-haskell
 
-executables:
-  persistent-template-classy:
+library:
     source-dirs:      src
-    main:             Main.hs
+
+tests:
+  persistent-template-classy-example:
+    main: examples/persistent-template-classy-example.hs
+    dependencies:
+      - persistent-template-classy

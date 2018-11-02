@@ -1,8 +1,3 @@
-# persistent-template-classy
-
-Generate classy lens for your Persistent fields. For example:
-
-```haskell
 {-# LANGUAGE EmptyDataDecls #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE GADTs #-}
@@ -51,31 +46,4 @@ main =
     liftIO $ print $ johnDoe ^. age
     let post = BlogPost "My fr1st p0st" johnId
     liftIO $ print $ post ^. title
-```
 
-This would essentially generate this additional code:
-
-```haskell
-class HasName ev a | ev -> a where
-  name :: Lens' ev a
-class HasAge ev a | ev -> a where
-  age :: Lens' ev a
-class HasTitle ev a | ev -> a where
-  title :: Lens' ev a
-class HasAuthorId ev a | ev -> a where
-  authorId :: Lens' ev a
-
-instance HasName Person String where
-  name = (lens personName) (\ x y -> x {personName = y})
-instance HasAge Person Int where
-  age = (lens personAge) (\ x y -> x {personAge = y})
-instance HasTitle BlogPost String where
-  title = (lens blogPostTitle) (\ x y -> x {blogPostTitle = y})
-instance HasAuthorId BlogPost PersonId where
-  authorId
-    = (lens blogPostAuthorId) (\ x y -> x {blogPostAuthorId = y})
-```
-
-Class-generation is separated from instance-generation because it's
-wise to keep it in a single place in your project and reuse with a
-non-persistent code.

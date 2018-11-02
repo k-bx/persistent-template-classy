@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 937eb55430f2d069d3e48c5f325993466055780e99dd016484f95f0575698578
+-- hash: dd8f9816d7bad4908d87abb0ed679b15b17ea413b6be9f4d8517ad34e42568fb
 
 name:           persistent-template-classy
 version:        0.1.0.0
@@ -19,12 +19,35 @@ build-type:     Simple
 extra-source-files:
     README.md
 
-executable persistent-template-classy
-  main-is: Main.hs
+library
+  exposed-modules:
+      Database.Persist.TH.Classy
   other-modules:
       Paths_persistent_template_classy
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , lens
+    , persistent
+    , persistent-sqlite
+    , persistent-template
+    , template-haskell
+    , text
+  default-language: Haskell2010
+
+test-suite persistent-template-classy-example
+  type: exitcode-stdio-1.0
+  main-is: examples/persistent-template-classy-example.hs
+  other-modules:
+      Paths_persistent_template_classy
+  build-depends:
+      base >=4.7 && <5
+    , lens
+    , persistent
+    , persistent-sqlite
+    , persistent-template
+    , persistent-template-classy
+    , template-haskell
+    , text
   default-language: Haskell2010
