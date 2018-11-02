@@ -7,7 +7,7 @@ license:             BSD3
 author:              Kostiantyn Rybnikov
 maintainer:          k-bx@k-bx.com
 copyright:           2018 Kostiantyn Rybnikov
-category:            Web
+category:            Database, Lens, Yesod
 extra-source-files:
 - README.md
 
