@@ -1,5 +1,5 @@
 name:                persistent-template-classy
-version:             0.1.0.0
+version:             0.1.0.1
 synopsis:            Generate classy lens field accessors for persistent models
 description:         Generate classy lens field accessors for persistent models.
 homepage:            https://github.com/k-bx/persistent-template-classy#readme

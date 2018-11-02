@@ -4,15 +4,17 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: dd8f9816d7bad4908d87abb0ed679b15b17ea413b6be9f4d8517ad34e42568fb
+-- hash: d42bdbd3c8dfe95a357a1c7edcc09b82bbce5cadb2c494dbbe9ed7d54be8d645
 
 name:           persistent-template-classy
-version:        0.1.0.0
-category:       Web
-homepage:       https://github.com/githubuser/persistent-template-classy#readme
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2018 Author name here
+version:        0.1.0.1
+synopsis:       Generate classy lens field accessors for persistent models
+description:    Generate classy lens field accessors for persistent models.
+category:       Database, Lens, Yesod
+homepage:       https://github.com/k-bx/persistent-template-classy#readme
+author:         Kostiantyn Rybnikov
+maintainer:     k-bx@k-bx.com
+copyright:      2018 Kostiantyn Rybnikov
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple

@@ -58,7 +58,7 @@ mkClassyInstance :: EntityDef -> Q [Dec]
 mkClassyInstance EntityDef {..} = do
   forM entityFields $ \FieldDef {..} ->
     case fieldType of
-      FTTypeCon _ tname -> do
+      FTTypeCon tmodule tname -> do
         let _unused = ()
               -- | like "Person"
             instanceTypeName =
@@ -95,7 +95,10 @@ mkClassyInstance EntityDef {..} = do
                 (mkName (T.unpack (unHaskellName fieldHaskell)))
                 [fieldClause]
             fieldTName =
-              let nonMaybe = ConT (mkName (T.unpack tname))
+              let tnameAndModule = case tmodule of
+                    Nothing -> tname
+                    Just t -> t <> "." <> tname
+                  nonMaybe = ConT (mkName (T.unpack tnameAndModule))
                in case "Maybe" `elem` fieldAttrs of
                     False -> nonMaybe
                     True -> AppT (ConT (mkName "Maybe")) nonMaybe
