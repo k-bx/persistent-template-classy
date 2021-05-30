@@ -10,6 +10,10 @@
 {-# LANGUAGE FunctionalDependencies #-}
 {-# LANGUAGE TypeSynonymInstances #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE DerivingStrategies #-}     
+{-# LANGUAGE StandaloneDeriving #-}     
+{-# LANGUAGE UndecidableInstances #-}   
+{-# LANGUAGE DataKinds #-}              
 
 import Control.Lens (Lens', (^.), lens)
 import Control.Monad.IO.Class (liftIO)
