@@ -99,7 +99,7 @@ mkClassyInstance EntityDef {..} = do
                     Nothing -> tname
                     Just t -> t <> "." <> tname
                   nonMaybe = ConT (mkName (T.unpack tnameAndModule))
-               in case "Maybe" `elem` fieldAttrs of
+               in case FieldAttrMaybe `elem` fieldAttrs of
                     False -> nonMaybe
                     True -> AppT (ConT (mkName "Maybe")) nonMaybe
         return $
